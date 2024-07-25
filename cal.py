@@ -52,3 +52,33 @@ buttons = [
 for button in buttons:
     text, row, col = button
     ttk.Button(root, text=text, command=lambda text=text: button_click(text)).grid(row=row, column=col, sticky="nsew")
+
+# Operator buttons
+operators = [
+    ("/", 1, 3),
+    ("*", 2, 3),
+    ("-", 3, 3),
+    ("+", 4, 3)
+]
+
+for operator in operators:
+    text, row, col = operator
+    ttk.Button(root, text=text, command=lambda text=text: button_click(text)).grid(row=row, column=col, sticky="nsew")
+
+# Special buttons
+ttk.Button(root, text="C", command=button_clear).grid(row=4, column=2, sticky="nsew")
+ttk.Button(root, text="=", command=button_equals).grid(row=4, column=1, sticky="nsew")
+
+# Configuring grid layout
+root.grid_rowconfigure(0, weight=1)
+root.grid_rowconfigure(1, weight=1)
+root.grid_rowconfigure(2, weight=1)
+root.grid_rowconfigure(3, weight=1)
+root.grid_rowconfigure(4, weight=1)
+root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=1)
+root.grid_columnconfigure(2, weight=1)
+root.grid_columnconfigure(3, weight=1)
+
+root.mainloop()
+
